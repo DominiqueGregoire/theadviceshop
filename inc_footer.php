@@ -3,7 +3,7 @@
 // echo $_SESSION['blah']; // demo undefined variable
 if (isset($_SESSION['username'])) {
     echo "Hello " . $_SESSION['username'];
-    echo " - <a href=\"logout.php?page=$name\">Logout</a>";
+    echo " - <a href=\"logout.php?page=\">Logout</a>";
 }
 else {
     echo "(Not logged in)";

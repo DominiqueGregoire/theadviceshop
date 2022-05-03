@@ -73,17 +73,17 @@ include("inc_nav.php"); ?>
 
 <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
        method="post">
-    First Name : <label>
-        <input type="text" name="fname">
+    Username : <label>
+        <input type="text" name="username">
     </label><br>
-    Last Name : <label>
-        <input type="text" name="lname">
-    </label><br>
+<!--    Last Name : <label>-->
+<!--        <input type="text" name="lname">-->
+<!--    </label><br>-->
     Email : <label>
         <input type="text" name="email">
     </label><br>
     Password : <label>
-        <input type="text" name="pword">
+        <input type="text" name="password">
     </label><br>
     <input type="submit">
 </form>
