@@ -1,62 +1,8 @@
-<?php include("dbconnect.php"); ?>
-
-// define variables and set to empty values
-$fnameErr = $emailErr = $pwordErr = "";
-$fname = $email = $pword = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-if (empty($_POST["fname"])) {
-$nameErr = "First Name is required";
-} else {
-$fname = test_input($_POST["fname"]);
-// check if first name only contains letters and whitespace
-if (!preg_match("/^[a-zA-Z-' ]*$/",$fname)) {
-$fnameErr = "Only letters and white space allowed";
-}
-}
-
-if (empty($_POST["lname"])) {
-$nameErr = "Last Name is required";
-} else {
-$lname = test_input($_POST["lname"]);
-// check if first name only contains letters and whitespace
-if (!preg_match("/^[a-zA-Z-' ]*$/",$lname)) {
-$lnameErr = "Only letters and white space allowed";
-}
-}
-
-if (empty($_POST["email"])) {
-$emailErr = "Email is required";
-} else {
-$email = test_input($_POST["email"]);
-// check if e-mail address is well-formed
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-$emailErr = "Invalid email format";
-}
-}
-
-if (empty($_POST["pword"])) {
-$pwordErr = "Password is required";
-} else {
-$pword = test_input($_POST["pword"]);
-
-// check if password has 8 characters and contains at least 1 uppercase, 1 lowercase, 1 number
-if (!preg_match("/^[a-zA-Z-o=0-9]*$/",$pword) || strlen(&pword) < 9)  {
-$lnameErr = "Password must have 8 characters and contain one number, one uppercase and one lowercase letter.";
-}
-}
-
-function test_input($data) {
-$data = trim($data);
-$data = stripslashes($data);
-$data = htmlspecialchars($data);
-return $data;
-}
+<?php include("dbconnect.php");
 ?>
 
-
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>The Advice Shop - Sample Advice</title>
@@ -64,29 +10,103 @@ return $data;
 </head>
 
 <body>
-<?php include("inc_header.php");
-include("inc_nav.php"); ?>
+<?php include("inc_header.php");include("inc_nav.php"); ?>
+
+<?php
+// define variables and set to empty values
+$usernameErr = $emailErr = $passwordErr = "";
+$username = $email = $password = "";
+
+//if the form is submitted validate it else skip and display a blank form
+// check the username
+/**
+ * @param string $usernameErr
+ * @param string $username
+ * @param string $emailErr
+ * @param string $email
+ * @return array
+ */
+function extracted(string $usernameErr, string $username, string $emailErr, string $email): array
+{
+    if (empty($_POST["username"])) {
+        $usernameErr = "Username is required";
+    } else {
+        $username = test_input($_POST["username"]);
+// check if username only contains letters and numbers
+        if (!preg_match("/^[a-zA-Z-\d) ]*$/", $username)) {
+            $usernameErr = "No spaces,only letters and numbers allowed";
+        }
+    }
+
+//check the email
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    } else {
+        $email = test_input($_POST["email"]);
+// check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+    }
+    return array($usernameErr, $username, $emailErr, $email);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    list($usernameErr, $username, $emailErr, $email) = extracted($usernameErr, $username, $emailErr, $email);
+
+//check the password
+if (empty($_POST["password"])) {
+$passwordErr = "Password is required";
+} else {
+$password = test_input($_POST["password"]);
+// check if password has 8 characters and contains at least 1 uppercase, 1 lowercase, 1 number
+    if (!preg_match("/^[a-zA-Z\d]*$/", $password) || strlen($password) < 9)  {
+        $passwordErr = "Password must have 8 characters and contain one number, one uppercase and 
+        one lowercase letter.";
+    }
+} //end else
+
+// create the test input function
+function test_input($data)  {
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data);
+return $data;
+} //end test-input
+}
+?>
 
 <h1>Sign Up Form</h1>
-<p>Please note that your email address will become your username for this site</p>
-<p><span class="error">* required fields</span></p>
 
-<form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
-       method="post">
-    Username : <label>
-        <input type="text" name="username">
-    </label><br>
-<!--    Last Name : <label>-->
-<!--        <input type="text" name="lname">-->
-<!--    </label><br>-->
-    Email : <label>
-        <input type="text" name="email">
-    </label><br>
-    Password : <label>
-        <input type="text" name="password">
-    </label><br>
-    <input type="submit">
-</form>
+<div class="register">
+    <p><span class="error">required field</span></p>
 
-<?php //include("inc_footer.php"); ?>
+    <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+           method="post">
+
+        Username : <label>
+            <input type="text" name="username" value="<?php echo $username;?>">
+            </label>
+        <span class="error">* <?php echo $usernameErr;?></span>
+        <br><br>
+
+        Email : <label>
+            <input type="text" name="email" value="<?php echo $email;?>">
+            </label>
+        <span class="error">* <?php echo $emailErr;?></span>
+        <br><br>
+
+        Password : <label>
+            <input type="text" name="password" value="<?php echo $password;?>">
+            </label>
+        <span class="error">* <?php echo $passwordErr;?></span>
+        <br><br>
+        <span><input type="submit" name="submit" value="Submit"></span>
+        <br><br>
+    </form>
+
+</div>
+
+
+<?php include("inc_footer.php"); ?>
 </body>
