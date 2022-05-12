@@ -1,4 +1,4 @@
-<?php include("dbconnect.php");?>
+<?php include("dbconnect.php"); ?>
 
 <!doctype html>
 <html lang="en">
@@ -72,17 +72,16 @@ function test_input($data)
         <div id="container">
             <form action="register.php" method="post">
                 Username : <input type="text" name="username" value="<?php echo $username; ?>">
-                    <span class="error">*<?php echo $usernameErr; ?></span> <br><br>
+                <span class="error">*<?php echo $usernameErr; ?></span> <br><br>
                 Email: <input type="text" name="email" value="<?php echo $email; ?>">
-                    <span class="error">*<?php echo $emailErr; ?></span> <br><br>
+                <span class="error">*<?php echo $emailErr; ?></span> <br><br>
                 Password : <input type="text" name="password" value="<?php echo $password; ?>">
-                    <span class="error">*<?php echo $passwordErr; ?></span> <br><br>
+                <span class="error">*<?php echo $passwordErr; ?></span> <br><br>
                 <input class="signupbutton" type="submit" name="submit" value="Sign up"><br><br>
                 <a href="login.php">Click to log in</a><br><br>
             </form>
         </div>
     </form>
 </div>
-
-<?php //include("inc_footer.php"); ?>
+<?php include("inc_footer.php"); ?>
 </body>
