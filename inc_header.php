@@ -4,10 +4,10 @@ $name = substr($filename, 0, strrpos($filename, ".")); ?>
 
 <header id="pageHeader">
   <aside id="login">
-      <button type="submit">Login</button>
-<!--      <form action="login.php?page=--><?php //echo $name; ?><!--" method="post">-->
-<!--          <input name="username" id="username" type="text" placeholder="Username">-->
-<!--          <input name="submit" type="submit" value="Login"></form>-->
+      <form action="login.php?page=<?php echo $name; ?>" method="post">
+          <a href="login.php?page=<?php echo $name; ?>"><button type="button" >Login</button></a>
+          <a href="register.php"><button type="button">Sign Up</button></a>
+      </form>
   </aside>
 <a href="index.php"><h1><span class="glyphicon glyphicon-ok"></span> The Advice Shop</h1></a>
 </header>
