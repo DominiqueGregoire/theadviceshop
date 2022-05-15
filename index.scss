@@ -9,14 +9,13 @@ body {
   margin: 0;
   /*font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;*/
   font-family: 'Open Sans', sans-serif;
+  h2 {
+    margin-left: 1em;
+  }
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-}
-
-body h2 {
-  margin-left: 1em;
+  font-family: $segoe-family;
 }
 
 #content {
@@ -35,36 +34,36 @@ nav {
   background-color: $secondary;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-}
 
-nav ul li {
-  display: inline-block;
-  list-style-type: none;
-  text-align: center;
-  box-sizing: border-box;
-  padding: 0.2em;
-  width: 24%;
-  /*	height: 2em;*/
-  border: $base-border;
-  border-radius: 10px;
-  background-color: $primary;
-}
+  ul {
+    li {
+      display: inline-block;
+      list-style-type: none;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 0.2em;
+      width: 24%;
+      /*	height: 2em;*/
+      border: $base-border;
+      border-radius: 10px;
+      background-color: $primary;
 
-nav ul li:hover {
-  background: #A8CFB1
-}
-
-nav ul li a {
-  display: block;
-  text-decoration: none;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: $text;
-  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-}
-
-nav ul li.current {
-  background-color: #999;
+      a {
+        display: block;
+        text-decoration: none;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: $text;
+        font-family: $segoe-family;
+      }
+    }
+    li:hover {
+      background: #A8CFB1
+    }
+    li.current {
+      background-color: #999;
+    }
+  }
 }
 
 .rightImage {
@@ -88,6 +87,17 @@ footer {
   bottom: 0;
   display: block;
   width: 100%;
+
+  .user {
+    float: right;
+  }
+
+  a {
+    color: aliceblue;
+  }
+  .copyright {
+    float: left;
+  }
 }
 
 header#pageHeader a {
@@ -100,6 +110,15 @@ header#pageHeader a {
   clear: both;
   border: $base-border;
   margin-top: -5em; /* 'undo' usual bottom margin on content div */
+
+  div {
+    width: 33%;
+    /*    border: thin solid grey;*/
+    float: left;
+    text-align: center;
+    /*    margin: 1em 2em;*/
+    box-sizing: border-box;
+  }
 }
 
 .clearfix:after {
@@ -111,15 +130,6 @@ header#pageHeader a {
 
 .clearfix {
   margin-bottom: 8em;
-}
-
-#features div {
-  width: 33%;
-  /*    border: thin solid grey;*/
-  float: left;
-  text-align: center;
-  /*    margin: 1em 2em;*/
-  box-sizing: border-box;
 }
 
 #first {
@@ -134,7 +144,6 @@ blockquote {
   font-size: larger;
 }
 
-
 #extra div {
   border: 3px solid black;
   float: left;
@@ -145,22 +154,10 @@ blockquote {
 #login {
   float: right;
   width: 12em;
-}
 
-#login input[type="submit"] {
-  margin-left: 1em;
-}
-
-footer .user {
-  float: right;
-}
-
-footer a {
-  color: aliceblue;
-}
-
-footer .copyright {
-  float: left;
+  input[type="submit"] {
+    margin-left: 1em;
+  }
 }
 
 .error {
@@ -169,14 +166,12 @@ footer .copyright {
 
 /* style the forms*/
 
-
 #text {
   height: 25px;
   border: solid thin #aaa;
   padding: 4px;
   border-radius: 5px;
 }
-
 
 #box {
   background-color: grey;
