@@ -2,6 +2,17 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+//variables
+
+//theme colors
+$primary:#565656;
+$secondary:#719B3F;
+$text:#FFFFFF;
+
+//border
+$base-border: thin black solid;
+
+
 body {
   min-width: 640px;
   margin: 0;
@@ -30,7 +41,7 @@ body h2 {
 
 nav {
   clear: both;
-  background-color: #719B3F;
+  background-color: $secondary;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
@@ -43,9 +54,9 @@ nav ul li {
   padding: 0.2em;
   width: 24%;
   /*	height: 2em;*/
-  border: thin solid #000000;
+  border: $base-border;
   border-radius: 10px;
-  background-color: #565656;
+  background-color: $primary;
 }
 
 nav ul li:hover {
@@ -57,7 +68,7 @@ nav ul li a {
   text-decoration: none;
   padding-left: 5px;
   padding-right: 5px;
-  color: #FFFFFF;
+  color: $text;
   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
 
@@ -70,8 +81,8 @@ nav ul li.current {
 }
 
 footer, header#pageHeader {
-  background-color: #565656;
-  color: #FFFFFF;
+  background-color: $primary;
+  color: $text;
   text-align: left;
   padding-top: 1.5em;
   padding-right: 1.5em;
@@ -90,13 +101,13 @@ footer {
 
 header#pageHeader a {
   text-decoration: none;
-  color: white;
+  color: $text;
 }
 
 #features {
   background-color: beige;
   clear: both;
-  border: thin black solid;
+  border: $base-border;
   margin-top: -5em; /* 'undo' usual bottom margin on content div */
 }
 
@@ -186,7 +197,7 @@ footer .copyright {
 #button {
   padding: 10px;
   width: 100px;
-  color: white;
+  color: $text;
   background-color: Lightblue;
   border: none;
 }

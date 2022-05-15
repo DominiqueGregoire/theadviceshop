@@ -41,7 +41,7 @@ nav ul li {
   padding: 0.2em;
   width: 24%;
   /*	height: 2em;*/
-  border: thin solid #000000;
+  border: thin black solid;
   border-radius: 10px;
   background-color: #565656;
 }
@@ -88,7 +88,7 @@ footer {
 
 header#pageHeader a {
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
 }
 
 #features {
@@ -177,7 +177,7 @@ footer .copyright {
 #button {
   padding: 10px;
   width: 100px;
-  color: white;
+  color: #FFFFFF;
   background-color: Lightblue;
   border: none;
 }
