@@ -32,16 +32,19 @@ nav {
   padding-bottom: 0.5em;
 }
 nav ul li {
+  background-color: #565656;
+  text-align: center;
+  padding-top: 0.2em;
+  padding-right: 0.2em;
+  padding-bottom: 0.2em;
+  padding-left: 0.2em;
   display: inline-block;
   list-style-type: none;
-  text-align: center;
   box-sizing: border-box;
-  padding: 0.2em;
   width: 24%;
   /*	height: 2em;*/
   border: thin black solid;
   border-radius: 10px;
-  background-color: #565656;
 }
 nav ul li a {
   display: block;
@@ -64,12 +67,12 @@ nav ul li.current {
 
 footer, header#pageHeader {
   background-color: #565656;
-  color: #FFFFFF;
   text-align: left;
   padding-top: 1.5em;
   padding-right: 1.5em;
   padding-bottom: 1.5em;
   padding-left: 1.5em;
+  color: #FFFFFF;
   clear: both;
 }
 

@@ -3,6 +3,14 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import "variables";
 
+@mixin content($align, $pad-amt){
+background-color: $primary;
+  text-align: $align;
+  padding-top: $pad-amt;
+  padding-right: $pad-amt;
+  padding-bottom: $pad-amt;
+  padding-left: $pad-amt;
+}
 
 body {
   min-width: 640px;
@@ -37,23 +45,21 @@ nav {
 
   ul {
     li {
+      @include content(center, 0.2em);
       display: inline-block;
       list-style-type: none;
-      text-align: center;
       box-sizing: border-box;
-      padding: 0.2em;
       width: 24%;
       /*	height: 2em;*/
       border: $base-border;
       border-radius: 10px;
-      background-color: $primary;
 
       a {
         display: block;
         text-decoration: none;
         padding-left: 5px;
         padding-right: 5px;
-        color: $text;
+        color: $white;
         font-family: $segoe-family;
       }
     }
@@ -71,13 +77,8 @@ nav {
 }
 
 footer, header#pageHeader {
-  background-color: $primary;
-  color: $text;
-  text-align: left;
-  padding-top: 1.5em;
-  padding-right: 1.5em;
-  padding-bottom: 1.5em;
-  padding-left: 1.5em;
+  @include content(left, 1.5em);
+  color: $white;
   clear: both;
 }
 
@@ -102,7 +103,7 @@ footer {
 
 header#pageHeader a {
   text-decoration: none;
-  color: $text;
+  color: $white;
 }
 
 #features {
@@ -183,7 +184,7 @@ blockquote {
 #button {
   padding: 10px;
   width: 100px;
-  color: $text;
+  color: $white;
   background-color: Lightblue;
   border: none;
 }
