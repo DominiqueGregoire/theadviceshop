@@ -1,5 +1,11 @@
 /* SCSS Document */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+#button {
+  padding: 10px;
+  width: 100px;
+  border: none;
+}
+
 body {
   min-width: 640px;
   margin: 0;
@@ -168,9 +174,6 @@ blockquote {
 }
 
 #button {
-  padding: 10px;
-  width: 100px;
   color: #FFFFFF;
   background-color: Lightblue;
-  border: none;
 }

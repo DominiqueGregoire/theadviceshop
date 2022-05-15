@@ -3,13 +3,22 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import "variables";
 
-@mixin content($align, $pad-amt){
+// add in a mixin
+@mixin setup($align, $pad-amt){
 background-color: $primary;
   text-align: $align;
   padding-top: $pad-amt;
   padding-right: $pad-amt;
   padding-bottom: $pad-amt;
   padding-left: $pad-amt;
+}
+
+// add in inheritance/extend
+//nb  use the placeholder rule% so that it doesn't get added into our css
+%basic-btn {
+  padding: 10px;
+  width: 100px;
+  border: none;
 }
 
 body {
@@ -45,7 +54,7 @@ nav {
 
   ul {
     li {
-      @include content(center, 0.2em);
+      @include setup(center, 0.2em);
       display: inline-block;
       list-style-type: none;
       box-sizing: border-box;
@@ -77,7 +86,7 @@ nav {
 }
 
 footer, header#pageHeader {
-  @include content(left, 1.5em);
+  @include setup(left, 1.5em);
   color: $white;
   clear: both;
 }
@@ -181,12 +190,11 @@ blockquote {
   margin: auto;
 }
 
+// this is where the extend is shown
 #button {
-  padding: 10px;
-  width: 100px;
+  @extend %basic-btn;
   color: $white;
   background-color: Lightblue;
-  border: none;
 }
 
 ///* Glyphicons from Bootstrap */
