@@ -4,8 +4,8 @@
 @import "variables";
 
 // add in a mixin
-@mixin setup($align, $pad-amt){
-background-color: $primary;
+@mixin setup($align, $pad-amt) {
+  background-color: $primary;
   text-align: $align;
   padding-top: $pad-amt;
   padding-right: $pad-amt;
@@ -26,6 +26,7 @@ body {
   margin: 0;
   /*font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;*/
   font-family: 'Open Sans', sans-serif;
+
   h2 {
     margin-left: 1em;
   }
@@ -72,9 +73,11 @@ nav {
         font-family: $segoe-family;
       }
     }
+
     li:hover {
       background: #A8CFB1
     }
+
     li.current {
       background-color: #999;
     }
@@ -105,6 +108,7 @@ footer {
   a {
     color: aliceblue;
   }
+
   .copyright {
     float: left;
   }
